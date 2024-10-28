@@ -20,6 +20,7 @@ html {
   font-size: 62.5%;
   font-family: "Play", sans-serif;
   color: white;
+  color-scheme: light dark;
 }
 
 body {
@@ -50,8 +51,8 @@ header .nav {
   font-family: "Press Start 2P", serif;
 }
 
-.nav__schema i {
-  font-size: 1.8rem;
+.nav__github i {
+  font-size: 2.2rem;
   cursor: pointer;
 }
 
@@ -142,8 +143,14 @@ main {
   transition: all 0.5s;
 }
 
+/* Game Styles */
+
+.game {
+  display: none;
+}
+
 /* Footer Styles */
-footer {
+.footer {
   font-size: 1.2rem;
   padding: var(--padding);
   text-align: center;
