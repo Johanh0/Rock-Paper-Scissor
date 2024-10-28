@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&display=swap");
+
+:root {
+  --padding: 70px 40px;
+
+  /* Colors */
+  --primary-color: #43219e;
+  --secondary-color: #b2a8fd;
+  --primary-gradient-color: linear-gradient(to top, #c7d2fe, #8678f9);
+  --gray: #939393;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Play", sans-serif;
+  color: white;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+}
+
+body :where(header, main, footer) {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding);
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+.nav__logo p {
+  font-family: "Press Start 2P", serif;
+}
+
+.nav__schema i {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Main Styles */
+main {
+  padding: var(--padding);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.hero__title {
+  & h1 {
+    font-size: 8rem;
+    font-family: "Press Start 2P", serif;
+    display: inline-flex;
+    background: var(--primary-gradient-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+  }
+
+  & p {
+    font-size: 2rem;
+    display: inline-flex;
+    animation: background-shine 4s linear infinite;
+    background: linear-gradient(110deg, #939393 45%, #1e293b 55%, #939393);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes background-shine {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.hero__cta button {
+  width: fit-content;
+  height: fit-content;
+  margin: 0.5em;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  font-family: "Press Start 2P", serif;
+}
+
+.hero__cta button:hover {
+  color: black;
+}
+
+.hero__cta button::after {
+  content: "";
+  background: var(--secondary-color);
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.hero__cta button:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* Footer Styles */
+footer {
+  font-size: 1.2rem;
+  padding: var(--padding);
+  text-align: center;
+  color: var(--gray);
+
+  & p a {
+    color: var(--gray);
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
