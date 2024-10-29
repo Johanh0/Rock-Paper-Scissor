@@ -6,6 +6,8 @@
   /* Colors */
   --primary-color: #43219e;
   --secondary-color: #b2a8fd;
+  --dark-primary-color: #241164;
+  --soft-secondary-color: #d8d7fd;
   --primary-gradient-color: linear-gradient(to top, #c7d2fe, #8678f9);
   --gray: #939393;
 }
@@ -27,7 +29,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-rows: auto 1fr auto;
-  min-height: 100dvh;
+  min-height: fit-content;
   background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
 }
 
@@ -63,6 +65,7 @@ main {
 
 .hero {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   gap: 40px;
@@ -102,7 +105,7 @@ main {
   }
 }
 
-.hero__cta button {
+.play--btn {
   width: fit-content;
   height: fit-content;
   margin: 0.5em;
@@ -120,11 +123,11 @@ main {
   font-family: "Press Start 2P", serif;
 }
 
-.hero__cta button:hover {
+.play--btn:hover {
   color: black;
 }
 
-.hero__cta button::after {
+.play--btn::after {
   content: "";
   background: var(--secondary-color);
   position: absolute;
@@ -137,7 +140,7 @@ main {
   transition: all 0.5s;
 }
 
-.hero__cta button:hover::after {
+.play--btn:hover::after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -147,6 +150,127 @@ main {
 
 .game {
   display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game__board {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  font-size: 2rem;
+  width: 100%;
+  height: fit-content;
+}
+
+.game__board .game__board--points,
+.game__board--result {
+  display: flex;
+  justify-content: space-around;
+}
+
+.game__board--points div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Press Start 2P", serif;
+  color: var(--soft-secondary-color);
+}
+
+.game__board--points div:nth-child(2) {
+  text-align: end;
+}
+
+.game__board .game__board--options,
+.game__board--btn {
+  display: flex;
+  justify-content: center;
+}
+
+.playing--card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  background: var(--dark-primary-color);
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid var(--secondary-color);
+  font-size: 5rem;
+
+  & span {
+    z-index: 10;
+  }
+}
+
+.wave {
+  position: absolute;
+  width: 540px;
+  height: 700px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -20%;
+  margin-top: -220%;
+  background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing--card .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.playing--card .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.playing--card .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.game__board .game__board--options {
+  gap: 30px;
+}
+
+.game__board .game__board--options div {
+  padding: 7px 20px;
+  background-color: #000;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.game__board .game__board--options div:hover {
+  background-color: var(--secondary-color);
+  transition: all 0.5s;
 }
 
 /* Footer Styles */
