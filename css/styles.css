@@ -64,7 +64,7 @@ main {
 }
 
 .hero {
-  display: flex;
+  display: none;
 
   flex-direction: column;
   align-items: center;
@@ -105,7 +105,7 @@ main {
   }
 }
 
-.play--btn {
+.play__btn {
   width: fit-content;
   height: fit-content;
   margin: 0.5em;
@@ -123,11 +123,11 @@ main {
   font-family: "Press Start 2P", serif;
 }
 
-.play--btn:hover {
+.play__btn:hover {
   color: black;
 }
 
-.play--btn::after {
+.play__btn::after {
   content: "";
   background: var(--secondary-color);
   position: absolute;
@@ -140,7 +140,7 @@ main {
   transition: all 0.5s;
 }
 
-.play--btn:hover::after {
+.play__btn:hover::after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -149,7 +149,7 @@ main {
 /* Game Styles */
 
 .game {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -203,6 +203,7 @@ main {
 
   & span {
     z-index: 10;
+    pointer-events: none;
   }
 }
 
@@ -260,15 +261,20 @@ main {
   gap: 30px;
 }
 
-.game__board .game__board--options div {
+.game__board .game__board--options button {
   padding: 7px 20px;
   background-color: #000;
   border: 1px solid var(--secondary-color);
+  font-size: 2rem;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.game__board .game__board--options div:hover {
+.game__board .game__board--options button.selected {
+  background-color: var(--secondary-color);
+}
+
+.game__board .game__board--options button:hover {
   background-color: var(--secondary-color);
   transition: all 0.5s;
 }

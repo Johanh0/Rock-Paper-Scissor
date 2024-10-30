@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const playBtn = document.querySelector(".play--btn");
+  const playBtnHero = document.querySelector("#play__btn--hero");
   const heroView = document.querySelector(".hero");
   const gameView = document.querySelector(".game");
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: 0, opacity: 1, ease: "power1.inOut", duration: 0.8 }
     );
 
-  playBtn.addEventListener("click", () => {
+  playBtnHero.addEventListener("click", () => {
     timeLine
       .fromTo(
         ".hero__cta",
