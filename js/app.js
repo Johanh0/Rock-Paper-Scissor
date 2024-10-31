@@ -102,19 +102,69 @@ function startGame() {
   const finalCpuResult = cpuChoose();
   const finalUserResult = userResult.textContent;
 
+  //   console.log(finalCpuResult);
+  //   console.log(finalUserResult);
+
+  // Check if the result was a tie
+  if (finalUserResult === finalCpuResult) {
+    console.log("It's a tie");
+    return;
+  }
+
   console.log(finalCpuResult);
   console.log(finalUserResult);
 
   switch (finalUserResult) {
     case gameValues.rock:
+      // Check if the user won
+      if (finalCpuResult === gameValues.scissor) {
+        console.log("USER won");
+        updateScore(userPoints);
+      }
+
+      // Check if the CPU won
+      if (finalCpuResult === gameValues.paper) {
+        console.log("CPU won");
+        updateScore(cpuPoints);
+      }
       break;
-    case gameValues.pap:
+    case gameValues.paper:
+      // Check if the user won
+      if (finalCpuResult === gameValues.rock) {
+        console.log("USER won");
+        updateScore(userPoints);
+      }
+
+      // Check if the CPU won
+      if (finalCpuResult === gameValues.scissor) {
+        console.log("CPU won");
+        updateScore(cpuPoints);
+      }
       break;
     case gameValues.scissor:
-      break;
-    default:
+      // Check if the user won
+      if (finalCpuResult === gameValues.paper) {
+        console.log("USER won");
+        updateScore(userPoints);
+      }
+
+      // Check if the CPU won
+      if (finalCpuResult === gameValues.rock) {
+        console.log("CPU won");
+        updateScore(cpuPoints);
+      }
       break;
   }
+
+  iconsResult(finalUserResult, finalCpuResult);
 }
 
-function gameLogic(userInput, cpuInput) {}
+function iconsResult(userIcon, cpuIcon) {
+  userResult.textContent = userIcon;
+  cpuResult.textContent = cpuIcon;
+}
+
+function updateScore(element) {
+  const elementValue = Number(element.textContent) + 1;
+  element.textContent = elementValue;
+}
