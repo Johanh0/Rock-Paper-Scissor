@@ -146,6 +146,11 @@ main {
   transition: all 0.5s;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 /* Game Styles */
 
 .game {
