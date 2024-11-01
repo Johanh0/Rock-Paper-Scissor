@@ -7,6 +7,7 @@ const paperBtn = document.querySelector("#game--paper");
 const scissorBtn = document.querySelector("#game--scissor");
 const allGameBtns = document.querySelectorAll(".game__option");
 const playBtnGame = document.querySelector("#play__btn--game");
+const modalMessage = document.querySelector(".game__board--modal--message");
 
 const gameValues = {
   crowd: "👑",
@@ -107,50 +108,47 @@ function startGame() {
 
   // Check if the result was a tie
   if (finalUserResult === finalCpuResult) {
-    console.log("It's a tie");
+    resultModal("It's a tie");
     return;
   }
-
-  console.log(finalCpuResult);
-  console.log(finalUserResult);
 
   switch (finalUserResult) {
     case gameValues.rock:
       // Check if the user won
       if (finalCpuResult === gameValues.scissor) {
-        console.log("USER won");
+        resultModal("USER WON");
         updateScore(userPoints);
       }
 
       // Check if the CPU won
       if (finalCpuResult === gameValues.paper) {
-        console.log("CPU won");
+        resultModal("CPU WON");
         updateScore(cpuPoints);
       }
       break;
     case gameValues.paper:
       // Check if the user won
       if (finalCpuResult === gameValues.rock) {
-        console.log("USER won");
+        resultModal("USER WON");
         updateScore(userPoints);
       }
 
       // Check if the CPU won
       if (finalCpuResult === gameValues.scissor) {
-        console.log("CPU won");
+        resultModal("CPU WON");
         updateScore(cpuPoints);
       }
       break;
     case gameValues.scissor:
       // Check if the user won
       if (finalCpuResult === gameValues.paper) {
-        console.log("USER won");
+        resultModal("USER WON");
         updateScore(userPoints);
       }
 
       // Check if the CPU won
       if (finalCpuResult === gameValues.rock) {
-        console.log("CPU won");
+        resultModal("CPU WON");
         updateScore(cpuPoints);
       }
       break;
@@ -167,4 +165,39 @@ function iconsResult(userIcon, cpuIcon) {
 function updateScore(element) {
   const elementValue = Number(element.textContent) + 1;
   element.textContent = elementValue;
+}
+
+function resultModal(message) {
+  modalMessage.textContent = message;
+
+  gsap.fromTo(
+    ".game__board--modal",
+    {
+      display: "flex",
+      duration: 0.8,
+      y: 50,
+      opacity: 0,
+      ease: "power1.inOut",
+    },
+    { y: 0, opacity: 1, ease: "power1.inOut", duration: 0.8 }
+  );
+
+  setTimeout(() => {
+    gsap.fromTo(
+      ".game__board--modal",
+      {
+        duration: 0.8,
+        y: 0,
+        opacity: 1,
+        ease: "power1.inOut",
+      },
+      {
+        y: 50,
+        opacity: 0,
+        ease: "power1.inOut",
+        duration: 0.8,
+        display: "none",
+      }
+    );
+  }, 2000);
 }
