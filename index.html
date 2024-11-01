@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
+    <script src="./js/animations.js" defer></script>
+    <script src="./js/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="nav__logo">
+          <p>RPS DUEL</p>
+        </div>
+        <div class="nav__github">
+          <a href="https://github.com/Johanh0" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__title">
+          <h1>RPS DUEL</h1>
+          <p>Rock, Paper, Scissors: the ultimate classic strategy game!</p>
+        </div>
+        <div class="hero__cta">
+          <button class="play__btn" id="play__btn--hero">Play!</button>
+        </div>
+      </section>
+
+      <section class="game">
+        <div class="game__board">
+          <div class="game__board--modal">
+            <p class="game__board--modal--message">USER WON</p>
+          </div>
+          <div class="game__board--points">
+            <div>
+              <span>CPU</span>
+              <span class="game__board--points--cpu">0</span>
+            </div>
+            <div>
+              <span>USER</span>
+              <span class="game__board--points--user">0</span>
+            </div>
+          </div>
+
+          <div class="game__board--result">
+            <div class="playing--card">
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <span class="cpu--result">🤖</span>
+            </div>
+            <div class="playing--card">
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <span class="user--result">👑</span>
+            </div>
+          </div>
+
+          <div class="game__board--options">
+            <button id="game--rock" class="game__option">👊</button>
+            <button id="game--paper" class="game__option">🖐️</button>
+            <button id="game--scissor" class="game__option">✌️</button>
+          </div>
+
+          <div class="game__board--btn">
+            <button class="play__btn disabled" id="play__btn--game">
+              Play!
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Made by
+        <a href="https://github.com/Johanh0" target="_blank">@Johanh0</a>
+      </p>
+    </footer>
+  </body>
+</html>
