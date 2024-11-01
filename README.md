@@ -21,7 +21,7 @@ This project is a simple implementation of the classic Rock, Paper, Scissors gam
 
 ## 🚀 Deployment
 
-To deploy this project, [click here.]()
+To deploy this project, [click here.](https://johanh0.github.io/Rock-Paper-Scissor/)
 
 &nbsp;
 
